@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version="1.9">
-  <model name="iris_with_gimbal">
+  <model name="drone_1">
     <include>
       <uri>model://iris_with_standoffs</uri>
     </include>
@@ -8,7 +8,7 @@
     <include>
       <uri>model://gimbal_small_3d</uri>
       <name>gimbal</name>
-      <pose degrees="true">0 -0.01 -0.124923 90 0 90</pose>    
+      <pose degrees="true">0 -0.01 -0.124923 90 0 90</pose>
     </include>
 
     <joint name="gimbal_joint" type="revolute">
@@ -281,40 +281,40 @@
       </control>
 
       <!-- roll range is -30 to +30 deg -->
-      <control channel="8">
-        <jointName>gimbal::roll_joint</jointName>
-        <multiplier>1.047197551196</multiplier>
-        <offset>-0.5</offset>
-        <servo_min>1100</servo_min>
-        <servo_max>1900</servo_max>
-        <type>COMMAND</type>
-        <cmd_topic>/gimbal/cmd_roll</cmd_topic>
-        <p_gain>2</p_gain>
-      </control>
+<!--      <control channel="8">-->
+<!--        <jointName>gimbal::roll_joint</jointName>-->
+<!--        <multiplier>1.047197551196</multiplier>-->
+<!--        <offset>-0.5</offset>-->
+<!--        <servo_min>1100</servo_min>-->
+<!--        <servo_max>1900</servo_max>-->
+<!--        <type>COMMAND</type>-->
+<!--        <cmd_topic>/gimbal/cmd_roll</cmd_topic>-->
+<!--        <p_gain>2</p_gain>-->
+<!--      </control>-->
 
       <!-- pitch range is -135 to +45 deg -->
-      <control channel="9">
-        <jointName>gimbal::pitch_joint</jointName>
-        <multiplier>-3.14159265</multiplier>
-        <offset>-0.75</offset>
-        <servo_min>1100</servo_min>
-        <servo_max>1900</servo_max>
-        <type>COMMAND</type>
-        <cmd_topic>/gimbal/cmd_pitch</cmd_topic>
-        <p_gain>2</p_gain>
-      </control>
+<!--      <control channel="9">-->
+<!--        <jointName>gimbal::pitch_joint</jointName>-->
+<!--        <multiplier>-3.14159265</multiplier>-->
+<!--        <offset>-0.75</offset>-->
+<!--        <servo_min>1100</servo_min>-->
+<!--        <servo_max>1900</servo_max>-->
+<!--        <type>COMMAND</type>-->
+<!--        <cmd_topic>/gimbal/cmd_pitch</cmd_topic>-->
+<!--        <p_gain>2</p_gain>-->
+<!--      </control>-->
 
       <!-- yaw range is -160 to +160 deg -->
-      <control channel="10">
-        <jointName>gimbal::yaw_joint</jointName>
-        <multiplier>-5.5850536</multiplier>
-        <offset>-0.5</offset>
-        <servo_min>1100</servo_min>
-        <servo_max>1900</servo_max>
-        <type>COMMAND</type>
-        <cmd_topic>/gimbal/cmd_yaw</cmd_topic>
-        <p_gain>2</p_gain>
-      </control>
+<!--      <control channel="10">-->
+<!--        <jointName>gimbal::yaw_joint</jointName>-->
+<!--        <multiplier>-5.5850536</multiplier>-->
+<!--        <offset>-0.5</offset>-->
+<!--        <servo_min>1100</servo_min>-->
+<!--        <servo_max>1900</servo_max>-->
+<!--        <type>COMMAND</type>-->
+<!--        <cmd_topic>/gimbal/cmd_yaw</cmd_topic>-->
+<!--        <p_gain>2</p_gain>-->
+<!--      </control>-->
 
     </plugin>
 
@@ -322,21 +322,21 @@
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>gimbal::roll_joint</joint_name>
-      <topic>/gimbal/cmd_roll</topic>
+      <topic>/drone_1/gimbal/cmd_roll</topic>
       <p_gain>2</p_gain>
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>gimbal::pitch_joint</joint_name>
-      <topic>/gimbal/cmd_pitch</topic>
+      <topic>/drone_1/gimbal/cmd_pitch</topic>
       <p_gain>2</p_gain>
     </plugin>
     <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>gimbal::yaw_joint</joint_name>
-      <topic>/gimbal/cmd_yaw</topic>
+      <topic>/drone_1/gimbal/cmd_yaw</topic>
       <p_gain>2</p_gain>
     </plugin>
 
